@@ -1,41 +1,41 @@
-<!-- CSS -->
-<link rel="stylesheet" href="./stylesheet.css">
-
-<!-- JavaScript -->
-<script src="./script.js"></script>
-
-<h2>アナウンス照合ツール</h2>
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>アナウンス照合ツール</title>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./stylesheet.css">
+</head>
 <body>
+
+  <h2>アナウンス照合ツール</h2>
+
   <form action="#" method="post">
     <div>
       <p>現在のアナウンス</p>
-    <textarea id="announce" disabled="disabled" rows="5" cols="40"　   placeholder="ぽぴっとぽぴほ ぴオプ2周年おめでとう!!！！！！!！
-みんな今年もイ中良くね!!！？
-
-@ぽぴぃ代理よしきゅー。(22回成功済)より"></textarea>
+      <textarea id="announce" disabled rows="5" cols="40" placeholder="ぽぴっとぽぴほ ぴオプ2周年おめでとう!!！！！！!！&#10;みんな今年もイ中良くね!!！？&#10;&#10;@ぽぴぃ代理よしきゅー。(22回成功済)より"></textarea>
     </div>
-    
+
     <p>照合したいアナウンス</p>
     <textarea id="message" name="message" rows="5" cols="40" placeholder="照合したいアナウンスを入力してください"></textarea>
   </form>
-  
-  <h2></h2>
-  
-<button id="my-btn">照合</button>
-  
-<h2></h2>
-  
-  <h5>アナウンス照合結果</h5>
-  <p id="result">未照合</p>
-  
-<h2></h2>
 
-<h5 id="notice">
-※現在のアナウンスについては、<br>
-ツール作成者側で操作をするので<br>
-利用者側では操作ができません。
-</h5>
+  <button id="my-btn">照合</button>
+
+  <h5>アナウンス照合結果</h5>
+  <p id="result" style="display:none;">未照合</p>
+
+  <h5 id="notice">
+    ※現在のアナウンスについては、<br>
+    ツール作成者側で操作をするので<br>
+    利用者側では操作ができません。
+  </h5>
 
   <h5>© 2026 救済ちゃん All Rights Reserved.</h5>
+
+  <!-- JavaScript -->
+  <script src="./script.js"></script>
 </body>
+</html>

@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ↓ ①で取得した SHA-256 ハッシュをここに貼る
-  const ADMIN_PASSWORD_HASH = "ここにハッシュ値";
+  const ADMIN_PASSWORD_HASH = "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";
 
   const loginBtn = document.getElementById("login-btn");
   const passInput = document.getElementById("admin-pass");

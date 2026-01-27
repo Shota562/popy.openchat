@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // -------------------------------
   // 管理者ログイン
   const ADMIN_PASSWORD_HASH =
-    "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";
+    "ab15b78885d5043704c07d8ffa7266baecf94064c072186a9a348a1831c7aa8a";
 
   const loginBtn = document.getElementById("login-btn");
   const passInput = document.getElementById("admin-pass");

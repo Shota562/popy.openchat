@@ -10,7 +10,7 @@ body {
 }
 
 #maintenance {
-  display: none !important;
+  display: block !important;
   margin-top: 50px;
 }
 

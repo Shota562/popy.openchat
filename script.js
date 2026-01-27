@@ -23,23 +23,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // -------------------------------
   // 管理者ログイン
-  loginBtn.addEventListener("click", async () => {
+  loginBtn.addEventListener("click", async (event) => {
+  event.preventDefault(); // フォーム送信をキャンセル
 
-    if (passInput.value.trim() === "") {
-      alert("パスワードを入力してください");
-      return;
-    }
+  if (passInput.value.trim() === "") {
+    alert("パスワードを入力してください");
+    return;
+  }
 
-    const inputHash = await sha256(passInput.value);
+  const inputHash = await sha256(passInput.value);
 
-    if (inputHash !== ADMIN_PASSWORD_HASH) {
-      alert("パスワードが一致しません");
-      return;
-    }
+  if (inputHash !== ADMIN_PASSWORD_HASH) {
+    alert("パスワードが一致しません");
+    return;
+  }
 
-    // 成功したら admin.html に遷移
-    window.location.href = "admin.html";
-  });
+  // 成功 → 管理者ページに遷移
+  window.location.href = "admin.html";
+});
 
   // -------------------------------
   // 照合ボタン処理

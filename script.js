@@ -1,12 +1,15 @@
-// 既存の照合処理の上部に追加
 document.addEventListener("DOMContentLoaded", () => {
+
+  // -------------------------------
+  // 既存の照合処理の上部に追加（保存アナウンスの読み込み）
   const announceEl = document.getElementById("announce");
   const saved = localStorage.getItem("currentAnnounce");
   if (saved) {
     announceEl.value = saved;
   }
-});
 
+  // -------------------------------
+  // 管理者ログイン
   const ADMIN_PASSWORD_HASH =
     "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";
 
@@ -21,35 +24,31 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   }
 
-  // -------------------------------
-  // 管理者ログイン
   loginBtn.addEventListener("click", async (event) => {
-  event.preventDefault(); // フォーム送信をキャンセル
+    event.preventDefault(); // フォーム送信をキャンセル
 
-  if (passInput.value.trim() === "") {
-    alert("パスワードを入力してください");
-    return;
-  }
+    if (passInput.value.trim() === "") {
+      alert("パスワードを入力してください");
+      return;
+    }
 
-  const inputHash = await sha256(passInput.value);
+    const inputHash = await sha256(passInput.value);
 
-  if (inputHash !== ADMIN_PASSWORD_HASH) {
-    alert("パスワードが一致しません");
-    return;
-  }
+    if (inputHash !== ADMIN_PASSWORD_HASH) {
+      alert("パスワードが一致しません");
+      return;
+    }
 
-  // 成功 → 管理者ページに遷移
-  window.location.href = "admin.html";
-});
+    // 成功 → 管理者ページに遷移
+    window.location.href = "admin.html";
+  });
 
   // -------------------------------
   // 照合ボタン処理
   const btn = document.getElementById("my-btn");
 
   btn.addEventListener("click", function () {
-    const announceEl = document.getElementById("announce");
     const announce = announceEl.value || announceEl.placeholder;
-
     const message = document.getElementById("message").value;
     const result  = document.getElementById("result");
     const diffEl  = document.getElementById("diff");
@@ -90,4 +89,4 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-});
+}); // ← DOMContentLoaded の閉じ括弧・カッコ

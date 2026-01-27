@@ -1,4 +1,11 @@
+// 既存の照合処理の上部に追加
 document.addEventListener("DOMContentLoaded", () => {
+  const announceEl = document.getElementById("announce");
+  const saved = localStorage.getItem("currentAnnounce");
+  if (saved) {
+    announceEl.value = saved;
+  }
+});
 
   const ADMIN_PASSWORD_HASH =
     "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";

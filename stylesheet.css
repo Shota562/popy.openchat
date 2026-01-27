@@ -43,11 +43,3 @@ button {
   background-color: yellow;
   color: black;
 }
-
-#diff {
-  border: 2px solid yellow;
-  padding: 10px;
-  margin: 10px auto;
-  width: 80%;
-  background-color: #111;
-}

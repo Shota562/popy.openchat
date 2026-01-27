@@ -25,3 +25,8 @@ button {
   padding: 12px;
   display: inline-block;
 }
+
+.diff-wrong {
+  background-color: yellow;
+  color: black;
+}

@@ -10,10 +10,19 @@
 </head>
 <body>
 
-  <!-- メンテナンス表示 -->
-  <h1 id="maintenance">現在メンテナンス中です</h1>
+   <!-- メンテナンス表示 -->
+  <div id="maintenance">
+    <h1>現在メンテナンス中です</h1>
 
-  <!-- ↓ ここから通常の画面（非表示にする） -->
+    <p>管理人用ログイン</p>
+    <input type="password" id="admin-pass" placeholder="パスワード">
+    <br><br>
+    <button id="login-btn">管理人ログイン</button>
+
+    <p id="login-result"></p>
+  </div>
+
+  <!-- 管理人だけ表示する中身 -->
   <div id="main-content">
   
   <h2>アナウンス照合ツール</h2>

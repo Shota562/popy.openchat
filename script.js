@@ -1,5 +1,29 @@
 // DOM が読み込まれてから実行
 document.addEventListener("DOMContentLoaded", () => {
+
+  document.addEventListener("DOMContentLoaded", () => {
+
+  const ADMIN_PASSWORD = "Shota562"; // ←ここを好きなパスワードに変更
+
+  const loginBtn = document.getElementById("login-btn");
+  const passInput = document.getElementById("admin-pass");
+  const resultText = document.getElementById("login-result");
+
+  const maintenance = document.getElementById("maintenance");
+  const mainContent = document.getElementById("main-content");
+
+  loginBtn.addEventListener("click", () => {
+    if (passInput.value === ADMIN_PASSWORD) {
+      maintenance.style.display = "none";
+      mainContent.style.display = "block";
+    } else {
+      resultText.textContent = "パスワードが違います ❌";
+      resultText.style.color = "red";
+    }
+  });
+
+});
+
   const btn = document.getElementById("my-btn");
 
   btn.addEventListener("click", function () {

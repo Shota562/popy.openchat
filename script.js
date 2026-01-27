@@ -40,8 +40,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-});
-
+  // -------------------------------
+  // 照合ボタン処理も同じDOMContentLoaded内に入れる
   const btn = document.getElementById("my-btn");
 
   btn.addEventListener("click", function () {
@@ -63,29 +63,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (announce.trim() === message.trim()) {
-  result.textContent = "一致しています ✅";
-  result.style.color = "lime";
-  diffEl.style.display = "none";
-} else {
-  result.textContent = "一致していません ❌";
-  result.style.color = "red";
-  diffEl.style.display = "block";
-
-  let html = "";
-  const maxLen = Math.max(announce.length, message.length);
-
-  for (let i = 0; i < maxLen; i++) {
-    const a = announce[i] || "";
-    const m = message[i] || "";
-
-    if (a === m) {
-      html += a;
+      result.textContent = "一致しています ✅";
+      result.style.color = "lime";
+      diffEl.style.display = "none";
     } else {
-      html += `<span class="diff-wrong">${a || "□"}</span>`;
-    }
-  }
+      result.textContent = "一致していません ❌";
+      result.style.color = "red";
+      diffEl.style.display = "block";
 
-  diffEl.innerHTML = html;
-}
+      let html = "";
+      const maxLen = Math.max(announce.length, message.length);
+
+      for (let i = 0; i < maxLen; i++) {
+        const a = announce[i] || "";
+        const m = message[i] || "";
+
+        if (a === m) {
+          html += a;
+        } else {
+          html += `<span class="diff-wrong">${a || "□"}</span>`;
+        }
+      }
+
+      diffEl.innerHTML = html;
+    }
   });
+
 });

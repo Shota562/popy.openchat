@@ -1,12 +1,11 @@
 // DOM が読み込まれてから実行
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ↓ ①で取得した SHA-256 ハッシュをここに貼る
-  const ADMIN_PASSWORD_HASH = "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";
+  const ADMIN_PASSWORD_HASH =
+    "60adefa4285c915503edaacc67fd6ba93144534c0f4e2992efbfee695a8e13d6";
 
   const loginBtn = document.getElementById("login-btn");
   const passInput = document.getElementById("admin-pass");
-  const resultText = document.getElementById("login-result");
 
   const maintenance = document.getElementById("maintenance");
   const mainContent = document.getElementById("main-content");
@@ -20,15 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   loginBtn.addEventListener("click", async () => {
+
+    // ① 未入力チェック
+    if (passInput.value.trim() === "") {
+      alert("パスワードを入力してください");
+      return;
+    }
+
+    // ② ハッシュ化して比較
     const inputHash = await sha256(passInput.value);
 
-    if (inputHash === ADMIN_PASSWORD_HASH) {
-      maintenance.style.display = "none";
-      mainContent.style.display = "block";
-    } else {
-      resultText.textContent = "パスワードが違います ❌";
-      resultText.style.color = "red";
+    if (inputHash !== ADMIN_PASSWORD_HASH) {
+      alert("パスワードが一致しません");
+      return;
     }
+
+    // ③ 一致した場合
+    maintenance.style.display = "none";
+    mainContent.style.display = "block";
+
   });
 
 });

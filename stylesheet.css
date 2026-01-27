@@ -5,6 +5,17 @@ body {
   text-align: center;
 }
 
+#main-content {
+  display: none;
+}
+
+#maintenance {
+  color: red;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
 h2 {
   color: #00ff00;
 }

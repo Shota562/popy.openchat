@@ -1,9 +1,8 @@
 // DOM が読み込まれてから実行
 document.addEventListener("DOMContentLoaded", () => {
 
-  document.addEventListener("DOMContentLoaded", () => {
-
-  const ADMIN_PASSWORD = "Shota562"; // ←ここを好きなパスワードに変更
+  // ↓ ①で取得した SHA-256 ハッシュをここに貼る
+  const ADMIN_PASSWORD_HASH = "ここにハッシュ値";
 
   const loginBtn = document.getElementById("login-btn");
   const passInput = document.getElementById("admin-pass");
@@ -12,8 +11,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const maintenance = document.getElementById("maintenance");
   const mainContent = document.getElementById("main-content");
 
-  loginBtn.addEventListener("click", () => {
-    if (passInput.value === ADMIN_PASSWORD) {
+  async function sha256(text) {
+    const enc = new TextEncoder().encode(text);
+    const buf = await crypto.subtle.digest("SHA-256", enc);
+    return [...new Uint8Array(buf)]
+      .map(b => b.toString(16).padStart(2, "0"))
+      .join("");
+  }
+
+  loginBtn.addEventListener("click", async () => {
+    const inputHash = await sha256(passInput.value);
+
+    if (inputHash === ADMIN_PASSWORD_HASH) {
       maintenance.style.display = "none";
       mainContent.style.display = "block";
     } else {

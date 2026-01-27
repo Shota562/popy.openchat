@@ -9,24 +9,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const message = document.getElementById("message").value;
     const result  = document.getElementById("result");
+    const diffEl  = document.getElementById("diff");
 
-    // 結果エリアを表示
     result.style.display = "block";
+    diffEl.innerHTML = "";
 
-    // 未入力チェック
     if (message.trim() === "") {
       result.textContent = "照合したいアナウンスを入力してください ⚠️";
       result.style.color = "yellow";
       return;
     }
 
-    // 前後の空白・改行を除去して比較
     if (announce.trim() === message.trim()) {
       result.textContent = "一致しています ✅";
       result.style.color = "lime";
+      diffEl.textContent = announce;
     } else {
       result.textContent = "一致していません ❌";
       result.style.color = "red";
+
+      // ===== 差分比較処理 =====
+      let html = "";
+      const maxLen = Math.max(announce.length, message.length);
+
+      for (let i = 0; i < maxLen; i++) {
+        const a = announce[i] || "";
+        const m = message[i] || "";
+
+        if (a === m) {
+          html += a;
+        } else {
+          html += `<span class="diff-wrong">${a || "□"}</span>`;
+        }
+      }
+
+      diffEl.innerHTML = html;
     }
   });
 });

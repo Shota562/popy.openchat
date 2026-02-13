@@ -1,4 +1,4 @@
-const MAINTENANCE_MODE = false; // ← 本番時に false に戻す
+const MAINTENANCE_MODE = true; // ← 本番時に false に戻す
 
 document.addEventListener("DOMContentLoaded", () => {
 

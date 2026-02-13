@@ -1,6 +1,27 @@
 const MAINTENANCE_MODE = true;  // ← メンテ中なら true、本番運用なら false
 document.addEventListener("DOMContentLoaded", () => {
 
+  document.addEventListener("DOMContentLoaded", () => {
+
+  // --- メンテナンスモード処理 ---
+  if (MAINTENANCE_MODE) {
+    document.body.innerHTML = `
+      <div style="
+        text-align:center;
+        margin-top:100px;
+        font-size:24px;
+        color:white;
+        font-family:system-ui;">
+        <h1>🔧 ただいまメンテナンス中です</h1>
+        <p>現在ツールはご利用いただけません。<br>
+        メンテナンスが終了次第、再度ご利用可能になります。</p>
+        <p>ご迷惑をおかけしますがご了承ください。</p>
+      </div>
+    `;
+    return;  // この先のスクリプトは実行されない
+  }
+
+  
   // -------------------------------
   // 既存の照合処理の上部に追加（保存アナウンスの読み込み）
   const announceEl = document.getElementById("announce");

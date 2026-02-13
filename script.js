@@ -1,18 +1,26 @@
-const MAINTENANCE_MODE = true; // ← 本番時に false に戻す
+const MAINTENANCE_MODE = true; // ← 本番時は false
 
 document.addEventListener("DOMContentLoaded", () => {
 
+  // --- 開発者用メンテ解除 (?dev=1 でメンテ無効)
+  const urlParams = new URLSearchParams(window.location.search);
+  const isDev = urlParams.get("dev") === "1";
+
   // --- メンテナンスモード ---
-  if (MAINTENANCE_MODE) {
+  if (MAINTENANCE_MODE && !isDev) {
     document.body.innerHTML = `
       <div style="text-align:center;margin-top:100px;font-size:24px;">
         <h1>🔧 ただいまメンテナンス中です</h1>
         <p>現在ツールはご利用いただけません。<br>
         メンテナンスが終了次第、再度ご利用可能になります。</p>
         <p>ご迷惑をおかけしますがご了承くださいませ。</p>
-        </div>`;
+      </div>`;
     return;
   }
+
+  // -------------------------
+  // ここから通常処理
+  // -------------------------
 
   // 照合
   const announceEl = document.getElementById("announce");

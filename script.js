@@ -1,8 +1,6 @@
 const MAINTENANCE_MODE = true;  // ← メンテ中なら true、本番運用なら false
 document.addEventListener("DOMContentLoaded", () => {
-
-  document.addEventListener("DOMContentLoaded", () => {
-
+  
   // --- メンテナンスモード処理 ---
   if (MAINTENANCE_MODE) {
     document.body.innerHTML = `

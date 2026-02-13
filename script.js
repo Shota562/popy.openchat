@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.innerHTML = `
       <div style="
         text-align:center;
-        margin-top:100px;
-        font-size:24px;
+        margin-top:30px;
+        font-size:10px;
         color:white;
         font-family:system-ui;">
         <h1>🔧 ただいまメンテナンス中です</h1>

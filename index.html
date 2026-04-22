@@ -11,19 +11,29 @@
 <div id="main-content">
   <h2 class="center-title">アナウンス照合ツール</h2>
 
-  <!-- 🔧 色設定エリア -->
-  <div class="color-settings">
-    <h3>🎨 色設定（利用者が自由に変更可能）</h3>
+  <!-- 🔧 色設定（折りたたみ） -->
+  <details class="color-settings">
+    <summary>🎨 色設定（クリックで開閉）</summary>
 
-    <label>文字色：</label>
-    <input type="color" id="textColor" value="#ffffff">
+    <div class="color-inner">
+      <label>アナウンス照合ツールの文字色：</label>
+      <input type="color" id="textColor" value="#ffffff">
 
-    <label>不一致文字色：</label>
-    <input type="color" id="diffColor" value="#000000">
+      <label>不一致文字色：</label>
+      <input type="color" id="diffColor" value="#000000">
 
-    <label>不一致背景色：</label>
-    <input type="color" id="diffBg" value="#ffff00">
-  </div>
+      <label>不一致背景色：</label>
+      <input type="color" id="diffBg" value="#ffff00">
+
+      <hr>
+
+      <label>照合ボタンの色：</label>
+      <input type="color" id="btnColor" value="#0000ff">
+
+      <label>ボタン内の文字色：</label>
+      <input type="color" id="btnTextColor" value="#ffffff">
+    </div>
+  </details>
 
   <!-- 入力エリア（左右2カラム） -->
   <div class="input-grid">

@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.innerHTML = `
       <div style="text-align:center;margin-top:100px;font-size:24px;">
         <h1>🔧 ただいまメンテナンス中です</h1>
-        <p>現在ツールはご利用いただけません。<br>
+        <p>現在アナウンス照合ツールはご利用いただけません。<br>
         メンテナンスが終了次第、再度ご利用可能になります。</p>
         <p>ご迷惑をおかけしますがご了承くださいませ。</p>
       </div>`;

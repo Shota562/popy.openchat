@@ -18,35 +18,43 @@ document.addEventListener("DOMContentLoaded", () => {
     return;
   }
 
-  // -------------------------
-  // ここから通常処理
-  // -------------------------
-
-  // ⭐ カラーカスタム機能
+  // =========================
+  // 🎨 カラーカスタム機能
+  // =========================
   const textColorInput = document.getElementById("textColor");
   const diffColorInput = document.getElementById("diffColor");
   const diffBgInput = document.getElementById("diffBg");
+  const btnColorInput = document.getElementById("btnColor");
+  const btnTextColorInput = document.getElementById("btnTextColor");
 
   function applyColors() {
     document.documentElement.style.setProperty("--text-color", textColorInput.value);
     document.documentElement.style.setProperty("--diff-text", diffColorInput.value);
     document.documentElement.style.setProperty("--diff-bg", diffBgInput.value);
+    document.documentElement.style.setProperty("--btn-bg", btnColorInput.value);
+    document.documentElement.style.setProperty("--btn-text", btnTextColorInput.value);
   }
 
   function saveColors() {
     localStorage.setItem("textColor", textColorInput.value);
     localStorage.setItem("diffColor", diffColorInput.value);
     localStorage.setItem("diffBg", diffBgInput.value);
+    localStorage.setItem("btnColor", btnColorInput.value);
+    localStorage.setItem("btnTextColor", btnTextColorInput.value);
   }
 
   function loadColors() {
     const text = localStorage.getItem("textColor");
     const diff = localStorage.getItem("diffColor");
     const bg   = localStorage.getItem("diffBg");
+    const btn  = localStorage.getItem("btnColor");
+    const btnText = localStorage.getItem("btnTextColor");
 
     if (text) textColorInput.value = text;
     if (diff) diffColorInput.value = diff;
-    if (bg)   diffBgInput.value = bg;
+    if (bg) diffBgInput.value = bg;
+    if (btn) btnColorInput.value = btn;
+    if (btnText) btnTextColorInput.value = btnText;
 
     applyColors();
   }
@@ -54,15 +62,23 @@ document.addEventListener("DOMContentLoaded", () => {
   // 初期読み込み
   loadColors();
 
-  // 入力時に反映 & 保存
-  [textColorInput, diffColorInput, diffBgInput].forEach(el => {
+  // 入力時に即反映＆保存
+  [
+    textColorInput,
+    diffColorInput,
+    diffBgInput,
+    btnColorInput,
+    btnTextColorInput
+  ].forEach(el => {
     el.addEventListener("input", () => {
       applyColors();
       saveColors();
     });
   });
 
-  // ⭐--- 照合処理 ---
+  // =========================
+  // 🔍 照合処理
+  // =========================
   const announceEl = document.getElementById("announce");
   const btn = document.getElementById("my-btn");
 
@@ -104,7 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ⭐--- 管理者ログイン ---
+  // =========================
+  // 🔐 管理者ログイン
+  // =========================
   const ADMIN_PASSWORD_HASH =
     "ab15b78885d5043704c07d8ffa7266baecf94064c072186a9a348a1831c7aa8a";
 

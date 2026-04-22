@@ -11,6 +11,20 @@
 <div id="main-content">
   <h2 class="center-title">アナウンス照合ツール</h2>
 
+  <!-- 🔧 色設定エリア -->
+  <div class="color-settings">
+    <h3>🎨 色設定（利用者が自由に変更可能）</h3>
+
+    <label>文字色：</label>
+    <input type="color" id="textColor" value="#ffffff">
+
+    <label>不一致文字色：</label>
+    <input type="color" id="diffColor" value="#000000">
+
+    <label>不一致背景色：</label>
+    <input type="color" id="diffBg" value="#ffff00">
+  </div>
+
   <!-- 入力エリア（左右2カラム） -->
   <div class="input-grid">
     <div>
@@ -56,6 +70,6 @@
 
 </div>
 
-<script src="./script.js?v=2"></script>
+<script src="./script.js?v=3"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-const MAINTENANCE_MODE = false; // ← 本番時は false
+const MAINTENANCE_MODE = true; // ← 本番時は false
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -10,10 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (MAINTENANCE_MODE && !isDev) {
     document.body.innerHTML = `
       <div style="text-align:center;margin-top:100px;font-size:24px;">
-        <h1>🔧 ただいまメンテナンス中です</h1>
-        <p>現在アナウンス照合ツールはご利用いただけません。<br>
-        メンテナンスが終了次第、再度ご利用可能になります。</p>
-        <p>ご迷惑をおかけしますがご了承くださいませ。</p>
+        <h1>サービス終了のお知らせ</h1>
+        <p>本日を持ちまして「アナウンス照合ツール」を<br>
+        サービス終了をさせて頂きます。誠に申し訳ございませんが<br>
+        ご理解のほどよろしくお願いいたします。</p>
+        <p>2026年5月18日 アナウンス照合ツール作成者 : かなたん推し【💫🎀所属 / 開発局長】</p>
       </div>`;
     return;
   }
